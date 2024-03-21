@@ -1,0 +1,6 @@
+weather_id,weather_main,weather_description
+800,Clear,clear sky
+801,Clouds,few clouds
+803,Clouds,broken clouds
+802,Clouds,scattered clouds
+804,Clouds,overcast clouds

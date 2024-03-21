@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # PostgreSQL connection properties
-db_password = "960352871454Vv!"
+db_password = "PASSWORD"
 db_user = "postgres"
 db_host = "localhost"
 db_port = "5432"
@@ -13,7 +13,7 @@ postgres_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_na
 engine = create_engine(postgres_url)
 
 # SQL query to fetch data
-raw_data = ["SELECT * FROM local_raw", "raw_data"]  # Update 'your_table' with the actual table name and csv file path
+raw_data = ["SELECT * FROM local_raw", "raw_data"]  # Update table with the actual table name and csv file path
 city_data = ["SELECT * FROM local_city", "city_data"]
 weather_data = ["SELECT * FROM local_weather", "weather_data"]
 measurement_data = ["SELECT * FROM local_measurement", "measurement_data"]
@@ -49,7 +49,6 @@ for data in all_data:
     data_to_download = fetch_data(query)
 
     if data_to_download is not None:
-        # Define the path where you want to save the CSV file
         csv_file_path = f"C:\OneDriveFolder\OneDrive - DXC Production\Desktop\Miscellaneous Files\Dimitar files\OpenWeatherMapAPI APP Local Python\\csv_data\\db_data\{file_name}.csv"
         print(csv_file_path)
         print(data_to_download)

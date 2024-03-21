@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # PostgreSQL connection properties
-db_password = "960352871454Vv!"
+db_password = "PASSWORD"
 db_user = "postgres"
 db_host = "localhost"
 db_port = "5432"
@@ -122,7 +122,7 @@ query_2_5 = """
                     c.city_name,
                     dvc.daily_variation 
                 FROM daily_variation_cte dvc
-                JOIN local_ity c ON dvc.city_id = c.city_id
+                JOIN local_city c ON dvc.city_id = c.city_id
                 ORDER BY dvc.daily_variation DESC
                 LIMIT 1;
             """
@@ -149,4 +149,3 @@ query_2_6 = """
 print("2.6 City that had the strongest wing in a certain period of time.")
 query_2_6_df = pd.read_sql(query_2_6, engine)
 print(f"{query_2_6_df}\n")
-

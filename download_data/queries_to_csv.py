@@ -5,13 +5,13 @@ import os
 
 import presentation.required_queries_for_task
 
-# Add the parent directory of this script to the sys.path
+# Added in order to use paths
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # PostgreSQL connection properties
-db_password = "960352871454Vv!"
+db_password = "PASSWORD"
 db_user = "postgres"
 db_host = "localhost"
 db_port = "5432"
@@ -61,7 +61,6 @@ for data in all_data:
     data_to_download = fetch_data(query)
 
     if data_to_download is not None:
-        # Define the path where you want to save the CSV file
         csv_file_path = f"C:\OneDriveFolder\OneDrive - DXC Production\Desktop\Miscellaneous Files\Dimitar files\OpenWeatherMapAPI APP Local Python\\csv_data\\query_data\{file_name}.csv"
         print(csv_file_path)
         print(data_to_download)

@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 # PostgreSQL connection properties
-db_password = "960352871454Vv!"
+db_password = "PASSWORD"
 db_user = "postgres"
 db_host = "localhost"
 db_port = "5432"
@@ -12,7 +12,7 @@ postgres_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_na
 # SQLAlchemy engine
 engine = create_engine(postgres_url)
 
-# Read weather data from local_raw
+# Read measurement data from local_raw
 query = """
     SELECT measurement_id, city_id, weather_id, temperature, temp_min, 
             temp_max, wind_speed, dt, sys_country, sys_sunrise, sys_sunset, timezone
@@ -21,7 +21,7 @@ query = """
 
 raw_df = pd.read_sql(query, engine)
 
-# Read weather data from local_measurement
+# Read measurement data from local_measurement
 query = """
     SELECT *
     FROM local_measurement

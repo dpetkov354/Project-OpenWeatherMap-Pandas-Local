@@ -3,7 +3,7 @@ import psycopg2
 # Database connection parameters
 dbname = 'local_openweather_db'
 user = 'postgres'
-password = '960352871454Vv!'
+password = 'PASSWORD'
 host = 'localhost'
 port = '5432'
 

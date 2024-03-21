@@ -4,10 +4,10 @@ from datetime import datetime
 from sqlalchemy import create_engine
 
 # OpenWeatherMap API key
-api_key = "67b8af2a44ee02263e53f9863816ff8c"
+api_key = "API_KEY"
 
 # List of cities for which you want to retrieve weather data
-cities = ["Milano", "Bologna", "Cagliari", "Sofia", "Plovdiv"]
+cities = ["Milano", "Bologna", "Cagliari"]
 
 # Units of measurement
 units = "metric"
@@ -30,7 +30,7 @@ def get_weather_data(key, name_city, unit):
 
 
 # PostgreSQL connection properties
-db_password = "960352871454Vv!"
+db_password = "PASSWORD"
 db_user = "postgres"
 db_host = "localhost"
 db_port = "5432"
@@ -131,6 +131,7 @@ for city in cities:
                    'timezone',
                    'cod']
 
+        # We ignore the str type since its default
         dtype = {'city_id': int,
                  'weather_id': int,
                  'temperature': float,
@@ -155,7 +156,6 @@ for city in cities:
 
         try:
             df.to_sql('local_raw', engine, if_exists='append', index=False)
-            print("Data successfully written to the 'local_raw' table.")
         except Exception as e:
             print("Error:", e)
 
